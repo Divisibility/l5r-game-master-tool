@@ -1,0 +1,397 @@
+/* -----------------------
+Base styles
+------------------------*/
+
+body
+{
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #eee;
+    font: 1em/1.2 Palatino, Helvetica, Arial, Geneva, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6
+		   {
+		       margin: 0 0 .5em;
+		       font-weight: 500;
+		       line-height: 1.1;
+		   }
+
+h1 { font-size: 2.25em; } /* 36px */
+h2 { font-size: 1.75em; } /* 28px */
+h3 { font-size: 1.375em; } /* 22px */
+h4 { font-size: 1.125em; } /* 18px */
+h5 { font-size: 1em; } /* 16px */
+h6 { font-size: .875em; } /* 14px */
+
+p
+{
+    margin: 0 0 1.5em;
+    line-height: 1.5;
+}
+
+hr
+{
+    height: 0;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+table
+{
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-top: 1px solid #ddd;
+}
+
+th, td
+	{
+	    padding: .5em 1em;
+	    vertical-align: top;
+	    text-align: left;
+	    border-bottom: 1px solid #ddd;
+	}
+
+textarea {
+    height: 100px;
+    min-width: 100%;
+    resize: none;
+}
+
+a:link { color: #ba8958; text-decoration: none; }
+a:visited { color: #ba8958; text-decoration: none; }
+a:focus { color: #ba8958; text-decoration: none; }
+a:hover { color: #ba8958; text-decoration: underline; }
+a:active { color: #ba8958; text-decoration: none; }
+
+/* -----------------------
+Layout styles
+------------------------*/
+
+.container
+{
+    max-width: 50em;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.header
+{
+    color: #be281c;
+    background: #ba8958;
+    padding: 1em 1.25em;
+}
+
+.header-heading { 
+    margin: 0;
+/*    background-image: url("../img/l5r-512.png"); */
+    background-size: 80px;
+    background-repeat: no-repeat;
+    padding-left: 0px;
+}
+
+.nav-bar
+{
+    background: #5c361d;
+    padding: 0;
+}
+
+.content { padding: 1em 1.25em; }
+
+.footer
+{
+    color: #fff;
+    background: #5c361d;
+    padding: 1em 1.25em;
+    font-size: small;
+}
+
+/* -----------------------
+Nav
+------------------------*/
+
+.nav
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav li
+{
+    display: inline;
+    margin: 0;
+}
+
+.nav a
+{
+    display: block;
+    padding: .7em 1.25em;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid gray;
+}
+
+.nav a:link { color: white; }
+.nav a:visited { color: white; }
+
+.nav a:focus
+	   {
+	       color: black;
+	       background-color: white;
+	   }
+
+.nav a:hover
+	   {
+	       color: white;
+	       background-color: #ba8958;
+	   }
+
+.nav a:active
+	   {
+	       color: white;
+	       background-color: #ba8958;
+	   }
+
+.footer a:link,
+.footer a:visited,
+.footer a:focus
+	      {
+		  color: white;
+		  text-decoration: none;
+	      }
+
+.footer a:hover
+	      {
+		  text-decoration: underline;
+	      }
+
+ul.flashes
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.flashes li
+{
+    padding: 1em;
+    margin: 0 0 1em 0;
+    color: #00529B;
+    background-color: #BDE5F8;
+    border: 1px solid;
+}
+
+/* colors from http://www.jankoatwarpspeed.com/css-message-boxes-for-different-message-types/ */
+
+p.success, .flashes li.success
+	    {
+		color: #4F8A10;
+		background-color: #DFF2BF;
+	    }
+
+.flashes li.warning {
+    color: #9F6000;
+    background-color: #FEEFB3;
+}
+
+.flashes li.error
+{
+    color: #D8000C;
+    background-color: #FFBABA;
+}
+
+/* -----------------------
+Single styles
+------------------------*/
+
+.img-responsive { max-width: 100%; }
+
+.btn
+{
+    color: #fff !important;
+    background-color: royalblue;
+    border-color: #222;
+    display: inline-block;
+    padding: .5em 1em;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: .2em;
+    text-decoration: none;
+}
+
+.btn:hover
+	 {
+	     color: #fff !important;
+	     background-color: green;
+	 }
+
+.btn:focus
+	 {
+	     color: #fff !important;
+	     background-color: black;
+	 }
+
+.btn:active
+	 {
+	     color: #fff !important;
+	     background-color: red;
+	 }
+
+.table
+{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.list-unstyled
+{
+    padding-left: 0;
+    list-style: none;
+}
+
+.list-inline
+{
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+}
+
+.list-inline > li
+{
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.small {
+    font-size: small;
+}
+
+
+/* -----------------------
+Wide styles
+------------------------*/
+
+@media (min-width: 42em)
+{
+    .header { padding: 1.5em 3em; }
+    .nav-bar { padding: 1em 3em; }
+    .content { padding: 2em 3em; }
+    .footer { padding: 2em 3em; }
+    
+    .nav li
+    {
+	display: inline;
+	margin: 0 1em 0 0;
+    }
+    
+    .nav a
+    {
+	display: inline;
+	padding: 0;
+	border-bottom: 0;
+    }
+}
+
+/* ------------------
+
+--------------------*/
+
+/* https://www.sanwebe.com/2014/08/css-html-forms-designs */
+
+.form-style-2{
+    max-width: 500px;
+    padding: 0px 12px 10px 20px;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-2-heading{
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 1.75em;
+    padding-bottom: 3px;
+}
+.form-style-2 label{
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+.form-style-2 label > span{
+    width: 100px;
+    font-weight: bold;
+    float: left;
+    padding-top: 8px;
+    padding-right: 5px;
+}
+span.required{
+    color:red;
+}
+.form-style-2 .tel-number-field{
+    width: 40px;
+    text-align: center;
+}
+.form-style-2 input.input-field{
+    width: 48%;
+
+}
+
+.form-style-2 input.input-field,
+.form-style-2 .tel-number-field,
+.form-style-2 .textarea-field,
+.form-style-2 .select-field{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+.form-style-2 .input-field:focus,
+.form-style-2 .tel-number-field:focus,
+.form-style-2 .textarea-field:focus,
+.form-style-2 .select-field:focus{
+    border: 1px solid #ed7304;
+}
+.form-style-2 .textarea-field{
+    height:100px;
+    width: 55%;
+}
+.form-style-2 input[type=submit],
+.form-style-2 input[type=button]{
+    border: none;
+    padding: 8px 15px 8px 15px;
+    background: #5c361d;
+    color: #fff;
+    box-shadow: 1px 1px 4px #DADADA;
+    -moz-box-shadow: 1px 1px 4px #DADADA;
+    -webkit-box-shadow: 1px 1px 4px #DADADA;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+.form-style-2 input[type=submit]:hover,
+.form-style-2 input[type=button]:hover{
+    background: #ba8958;
+    color: #fff;
+}
+
+tr.light, tr.heavy {
+    background-color: #efefef;
+}
+

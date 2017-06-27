@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Help</h2>
+<p>
+  <h3>Generator</h3>
+  <ul>
+    <li>
+      <strong>Generate</strong> will create a character with the
+      select states. Thereby 'Random' states will be choose by the
+      generator, everything else will be used as is. If any
+      combination of states are impossible, the generator will put the
+      states in question back to 'Random'.
+    </li>
+    <li>
+      <strong>Reset</strong> will reset all states to 'Random'.
+    </li>
+    <li>
+      <strong>Save</strong> will save all states if everything is
+      correct and will report any problems.
+    </li>
+  </ul>
+  <h3>Manager</h3>
+  <ul>
+    <li>
+      <strong>Load</strong> will show the selected character with all
+      available states.
+    </li>
+    <li>
+      <strong>Edit</strong> will let you write some notes for the
+      selected character.
+    </li>
+    <li>
+      <strong>Save</strong> will save 'Notes' to the selected
+      character.
+    </li>
+    <li>
+      <strong>Delete</strong> will delete the selected character
+      permanently.
+  </ul>
+</p>
+{% endblock %}
+
+
+

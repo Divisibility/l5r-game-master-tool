@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Legend of the Five Rings - Game Master Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- icons -->
+    <!-- <link rel="shortcut icon" href="/static/assets/img/favicon_l5r.ico"> -->
+
+    <!-- Override CSS file - add your own CSS rules -->
+    <link rel="stylesheet" href="/static/assets/css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 class="header-heading">Legend of the Five Rings<br/>Game Master Tool</h1>
+      </div>
+      <div class="nav-bar">
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+	  <li><a href="/generator">Generator</a></li>
+	  <li><a href="/manager">Manager</a></li>
+	  <div style="float:right;">
+	    <li><a href="/help">Help</a></li>
+	  </div>
+        </ul>
+      </div>
+      <div class="content">
+	{% with messages = get_flashed_messages(with_categories=true) %}
+	{% if messages %}
+	<ul class="flashes">
+	  {% for category, message in messages %}
+	  <li class="{{ category }}">{{ message }}</li>
+	  {% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
+        <div class="main">
+          {% block content %}
+	  {% endblock %}
+        </div>
+      </div>
+      <div class="footer">
+        &copy; Copyright 2017 <a href="https://github.com/Divisibility">Divisibility</a>
+      </div>
+    </div>
+  </body>
+</html>

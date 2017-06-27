@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Character Manager</h2>
+<form action="{{ url_for('manager') }}" method="post">
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+	<th scope="row">Samurai</th>
+	<td>
+	  <select style="min-width:100%;" name="samurai">
+	    <option value="">Choose a samurai</option>
+            {% for samurai in samurais %}
+            <option value="{{ samurai.id }}" {% if dsamurai == samurai.id %}selected{% endif %}>
+	      {{ samurai.family.name }}, {{ samurai.forename.name }} </option>
+            {% endfor %}
+	</td>
+      </tr>
+      {% if display %}
+      <tr>
+	<th scope="row">Clan</th>
+	<td>
+	  {{ marked_samurai.clan.name }}
+	</td>
+      </tr>
+      <tr>
+	<th scope="row">Name</th>
+	<td>
+	  {{ marked_samurai.family.name }}, {{ marked_samurai.forename.name }}
+	  ({{ marked_samurai.gender }})
+	</td>
+      </tr>
+      <tr>
+	<th scope="row">School</th>
+	<td>
+	  {{ marked_samurai.school.name }} ({{ marked_samurai.school.type }})
+	</td>
+      </tr>
+      <tr>
+	<th scope="row">Notes</th>
+	<td>
+	  {% if edit %}
+	  <textarea name="notes">{{ marked_samurai.notes }}</textarea>
+	  {% else %}
+	  {{ marked_samurai.notes }}
+	  {% endif %}
+	</td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+  <div class="form-style-2">
+    <input type="submit" name="load" value="Load">
+    {% if display %}
+    <input type="submit" name="edit" {% if edit %} value="Save" {% else %} value="Edit" {% endif %}>
+    <input type="submit" name="delete" value="Delete">
+    {% endif %}
+  </div>
+</form>
+{% endblock %}

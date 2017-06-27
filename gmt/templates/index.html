@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome, Samurai.</h1>
+<hr>
+<p>
+  This tool is written for game masters of Legend of the Five Rings campaings.<br><br>
+
+  <h3>Features:</h3>
+  <ul>
+    <li>
+      It provides a <a href="{{ url_for('generator') }}">Generator</a>
+      to generate PCs and NPCs.
+    </li>
+    <li>
+      It provides a <a href="{{ url_for('manager') }}">Manager</a> to
+      keep track of all generated PCs and NPCs.
+    </li>
+  </ul>
+</p>
+{% endblock %}
