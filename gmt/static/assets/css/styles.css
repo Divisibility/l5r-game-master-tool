@@ -98,6 +98,7 @@ Layout styles
 {
     background: #5c361d;
     padding: 0;
+    margin: 0;
 }
 
 .content { padding: 1em 1.25em; }
@@ -118,22 +119,23 @@ Nav
 {
     margin: 0;
     padding: 0;
-    list-style: none;
+    list-style-type: none;
 }
 
 .nav li
 {
     display: inline;
     margin: 0;
+    padding: 0;
 }
 
 .nav a
 {
-    display: block;
+    display: inline-block;
     padding: .7em 1.25em;
     color: #fff;
     text-decoration: none;
-    border-bottom: 1px solid gray;
+    border-bottom: 0px;
 }
 
 .nav a:link { color: white; }
@@ -209,45 +211,6 @@ p.success, .flashes li.success
 Single styles
 ------------------------*/
 
-.img-responsive { max-width: 100%; }
-
-.btn
-{
-    color: #fff !important;
-    background-color: royalblue;
-    border-color: #222;
-    display: inline-block;
-    padding: .5em 1em;
-    margin-bottom: 0;
-    font-weight: 400;
-    line-height: 1.2;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    border: 1px solid transparent;
-    border-radius: .2em;
-    text-decoration: none;
-}
-
-.btn:hover
-	 {
-	     color: #fff !important;
-	     background-color: green;
-	 }
-
-.btn:focus
-	 {
-	     color: #fff !important;
-	     background-color: black;
-	 }
-
-.btn:active
-	 {
-	     color: #fff !important;
-	     background-color: red;
-	 }
-
 .table
 {
     width: 100%;
@@ -279,35 +242,6 @@ Single styles
     font-size: small;
 }
 
-
-/* -----------------------
-Wide styles
-------------------------*/
-
-@media (min-width: 42em)
-{
-    .header { padding: 1.5em 3em; }
-    .nav-bar { padding: 1em 3em; }
-    .content { padding: 2em 3em; }
-    .footer { padding: 2em 3em; }
-    
-    .nav li
-    {
-	display: inline;
-	margin: 0 1em 0 0;
-    }
-    
-    .nav a
-    {
-	display: inline;
-	padding: 0;
-	border-bottom: 0;
-    }
-}
-
-/* ------------------
-
---------------------*/
 
 /* https://www.sanwebe.com/2014/08/css-html-forms-designs */
 
@@ -394,4 +328,3 @@ span.required{
 tr.light, tr.heavy {
     background-color: #efefef;
 }
-
