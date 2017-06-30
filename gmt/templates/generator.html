@@ -58,6 +58,46 @@
             {% endfor %}
 	</td>
       </tr>
+      <tr>
+	<th scope="row">Honor</th>
+	<td>
+	  <select style="min-width:100%;" name="honor">
+	    <option value="">Random</option>
+            {% for i in range(100) %}
+            <option value="{{ i }}" {% if dhonor == i %}selected{% endif %} > {{ i / 10 }} </option>
+            {% endfor %}
+	</td>
+      </tr>
+      <tr>
+	<th scope="row">Glory</th>
+	<td>
+	  <select style="min-width:100%;" name="glory">
+	    <option value="">Random</option>
+            {% for i in range(100) %}
+            <option value="{{ i }}" {% if dglory == i %}selected{% endif %} > {{ i / 10 }} </option>
+            {% endfor %}
+	</td>
+      </tr>
+      <tr>
+	<th scope="row">Status</th>
+	<td>
+	  <select style="min-width:100%;" name="status">
+	    <option value="">Random</option>
+            {% for i in range(100) %}
+            <option value="{{ i }}" {% if dstatus == i %}selected{% endif %} > {{ i / 10 }} </option>
+            {% endfor %}
+	</td>
+      </tr>
+      <tr>
+	<th scope="row">Shadowland Taint</th>
+	<td>
+	  <select style="min-width:100%;" name="taint">
+	    <option value="">Random</option>
+            {% for i in range(100) %}
+            <option value="{{ i }}" {% if dtaint == i %}selected{% endif %} > {{ i / 10 }} </option>
+            {% endfor %}
+	</td>
+      </tr>
     </tbody>
   </table>
   <div class="form-style-2">

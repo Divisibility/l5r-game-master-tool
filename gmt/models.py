@@ -67,6 +67,10 @@ class Samurai(db.Model):
     __tablename__ = "samurai"
     id = db.Column('id', db.Integer, primary_key=True)
     gender = db.Column('gender', db.Enum('Male', 'Female'))
+    honor = db.Column('honor', db.Integer)
+    glory = db.Column('glory', db.Integer)
+    status = db.Column('status', db.Integer)
+    taint = db.Column('taint', db.Integer)
     clan_id = db.Column('clan_id', db.Integer, db.ForeignKey('clan.id'))
     family_id = db.Column('family_id', db.Integer, db.ForeignKey('family.id'))
     school_id = db.Column('school_id', db.Integer, db.ForeignKey('school.id'))
@@ -79,8 +83,13 @@ class Samurai(db.Model):
     school = db.relationship('School', foreign_keys=school_id)
     forename = db.relationship('Forename', foreign_keys=forename_id)
     
-    def __init__(self, gender, clan_id, family_id, school_id, forename_id):
+    def __init__(self, gender, honor, glory, status, taint,\
+                 clan_id, family_id, school_id, forename_id):
         self.gender = gender
+        self.honor = honor
+        self.glory = glory
+        self.status = status
+        self.taint = taint
         self.clan_id = clan_id
         self.family_id = family_id
         self.school_id = school_id

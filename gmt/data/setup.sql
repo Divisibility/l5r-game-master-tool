@@ -102,6 +102,10 @@ DROP TABLE IF EXISTS samurai;
 CREATE TABLE samurai (
         id INTEGER NOT NULL,
         gender VARCHAR(64),
+	honor INTEGER,
+	glory INTEGER,
+	status INTEGER,
+	taint INTEGER,
 	clan_id INTEGER,
  	family_id INTEGER,
  	school_id INTEGER,

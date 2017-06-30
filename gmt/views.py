@@ -22,44 +22,65 @@ def generator():
     school = School.query.all()
     forename = Forename.query.all()
     
-    dummy = {'dclan': int(request.form.get('clan') or 0),
-             'dfamily': int(request.form.get('family') or 0),
-             'dschool': int(request.form.get('school') or 0),
-             'dgender': (request.form.get('gender') or 0),
-             'dforename': int(request.form.get('forename') or 0)}
+    dummy = {'dclan': int(request.form.get('clan') or -1),
+             'dfamily': int(request.form.get('family') or -1),
+             'dschool': int(request.form.get('school') or -1),
+             'dgender': (request.form.get('gender') or -1),
+             'dforename': int(request.form.get('forename') or -1),
+             'dhonor': int(request.form.get('honor') or -1),
+             'dglory': int(request.form.get('glory') or -1),
+             'dstatus': int(request.form.get('status') or -1),
+             'dtaint': int(request.form.get('taint') or -1)}
 
     if request.method == 'POST':
         if request.form.get('generate') == 'Generate':
-            if dummy['dclan'] == 0:
+            if dummy['dclan'] == -1:
+                print "change"
                 dummy['dclan'] = Clan.query.order_by(func.random()).first().id
 
             family = Family.query.filter(Family.clan_id==dummy['dclan'])
-            if dummy['dfamily'] == 0 and family.all():
+            if dummy['dfamily'] == -1 and family.all():
                 dummy['dfamily'] = family.order_by(func.random()).first().id
 
             school = School.query.filter(School.clan_id==dummy['dclan'])
-            if dummy['dschool'] == 0 and school.all():
+            if dummy['dschool'] == -1 and school.all():
                 dummy['dschool'] = school.order_by(func.random()).first().id
 
-            if dummy['dgender'] == 0:
+            if dummy['dgender'] == -1:
                 dummy['dgender'] = random.choice(['Male', 'Female'])
 
             forename = Forename.query.filter(Forename.gender==dummy['dgender'])
-            if dummy['dforename'] == 0 and forename.all():
+            if dummy['dforename'] == -1 and forename.all():
                 dummy['dforename'] = forename.order_by(func.random()).first().id
-            
+
+            if dummy['dhonor'] == -1:
+                dummy['dhonor'] = int(random.gammavariate(8.0, 4.5)) % 100
+
+            if dummy['dglory'] == -1:
+                dummy['dglory'] = int(random.gammavariate(8.0, 3.0)) % 100
+
+            if dummy['dstatus'] == -1:
+                dummy['dstatus'] = int(random.gammavariate(3.5, 6.0)) % 100
+
+            if dummy['dtaint'] == -1:
+                dummy['dtaint'] = int(random.gammavariate(1.0, 0.5)) % 100
+
                 
         if request.form.get('reset') == 'Reset':
-            dummy['dclan'] = 0
-            dummy['dfamily'] = 0
-            dummy['dschool'] = 0
-            dummy['dgender'] = 0
-            dummy['dforename'] = 0
+            dummy['dclan'] = -1
+            dummy['dfamily'] = -1
+            dummy['dschool'] = -1
+            dummy['dgender'] = -1
+            dummy['dforename'] = -1
+            dummy['dhonor'] = -1
+            dummy['dglory'] = -1
+            dummy['dstatus'] = -1
+            dummy['dtaint'] = -1
 
 
         if request.form.get('save') == 'Save':
             success = True
-            if any(v == 0 for v in dummy.itervalues()):
+            if any(v == -1 for v in dummy.itervalues()):
                 flash("Choose everything manually or use 'Generate'!", "error")
                 success = False
 
@@ -80,7 +101,8 @@ def generator():
 
             if success:
                 flash("Everything is fine!", "success")
-                samurai = Samurai(dummy['dgender'], dummy['dclan'],\
+                samurai = Samurai(dummy['dgender'], dummy['dhonor'], dummy['dglory'],\
+                                  dummy['dstatus'], dummy['dtaint'], dummy['dclan'],\
                                   dummy['dfamily'], dummy['dschool'], dummy['dforename'])
                 db.session.add(samurai)
                 db.session.commit()
@@ -91,7 +113,7 @@ def generator():
 @app.route('/manager', methods=['GET', 'POST'])
 def manager():
     samurai = Samurai.query.all()
-    dsamurai = int(request.form.get('samurai') or 0)
+    dsamurai = int(request.form.get('samurai') or -1)
     marked_samurai = Samurai.query.filter(Samurai.id==dsamurai).first()
     display = False
     edit = False
@@ -105,6 +127,10 @@ def manager():
             if marked_samurai:
                 display = True
                 marked_samurai.notes = request.form.get('notes')
+                marked_samurai.honor = int(float(request.form.get('honor')) * 10)
+                marked_samurai.glory = int(float(request.form.get('glory')) * 10)
+                marked_samurai.status = int(float(request.form.get('status')) * 10)
+                marked_samurai.taint = int(float(request.form.get('taint')) * 10)
                 db.session.add(marked_samurai)
                 db.session.commit()
 

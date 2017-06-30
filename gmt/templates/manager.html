@@ -36,6 +36,50 @@
 	</td>
       </tr>
       <tr>
+	<th scope="row">Honor</th>
+	<td>
+	  {% if edit %}
+	  <input type="number" name="honor" min="0" max="10" step="0.1"
+		 value="{{ marked_samurai.honor / 10}}">
+	  {% else %}
+	  {{ marked_samurai.honor / 10 }}
+	  {% endif %}
+	</td>
+      </tr>
+      <tr>
+	<th scope="row">Glory</th>
+	<td>
+	  {% if edit %}
+	  <input type="number" name="glory" min="0" max="10" step="0.1"
+		 value="{{ marked_samurai.glory / 10}}">
+	  {% else %}
+	  {{ marked_samurai.glory / 10 }}
+	  {% endif %}
+	</td>
+      </tr>
+      <tr>
+	<th scope="row">Status</th>
+	<td>
+	  {% if edit %}
+	  <input type="number" name="status" min="0" max="10" step="0.1"
+		 value="{{ marked_samurai.status / 10}}">
+	  {% else %}
+	  {{ marked_samurai.status / 10 }}
+	  {% endif %}
+	</td>
+      </tr>
+      <tr>
+	<th scope="row">Shadowland Taint</th>
+	<td>
+	  {% if edit %}
+	  <input type="number" name="taint" min="0" max="10" step="0.1"
+		 value="{{ marked_samurai.taint / 10}}">
+	  {% else %}
+	  {{ marked_samurai.taint / 10 }}
+	  {% endif %}
+	</td>
+      </tr>
+      <tr>
 	<th scope="row">Notes</th>
 	<td>
 	  {% if edit %}
